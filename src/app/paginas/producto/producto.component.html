@@ -14,7 +14,7 @@
 <div [ngClass]="{ 'activo':usuario.activo, 'inactivo' : !usuario.activo}">
     {{ usuario.nombre }}
 </div>
--->
+
 <div class="card-container">
     <div *ngFor="let articulo of producto; let i = index">
         <div class="card">
@@ -26,4 +26,20 @@
             </div>
         </div>
     </div>
+</div>
+-->
+
+<h1>Productos</h1>
+<div class="card-container">
+    <ng-container *ngIf="Productos && Productos.length">
+        <ng-container *ngFor="let producto of Productos">
+            <div *ngIf = "producto.disponibilidad" class="card">
+                <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="product-image">
+                <h2>{{ producto.nombre }}</h2>
+                <p>{{ producto.descripcion }}</p>
+                <p>Precio: {{producto.precio}}</p>
+                <button type="button" class="btn btn-outline-primary" (click)="agregar(producto)">Agregar al carrito</button>
+            </div>
+        </ng-container>
+    </ng-container>
 </div>
