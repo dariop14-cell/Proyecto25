@@ -15,7 +15,6 @@ export class CarritoComponent implements OnInit {
 
   ngOnInit(): void {
     this.carritoService.carrito$.subscribe((productos) => {
-
     })
   }
 

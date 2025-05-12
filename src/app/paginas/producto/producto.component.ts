@@ -33,5 +33,10 @@ agregar(producto: Producto){
   this.carritoService.agregarAlcarrito(producto)
   alert('Producto agregado al carrito')
 }
-}
 
+//metodo para añadir a una lista de deseos
+agregarDeseo(producto: Producto){
+  this.carritoService.agregarAlcarrito(producto)
+  alert('Producto agregado a la lista de deseos')
+}
+}

@@ -11,7 +11,7 @@ import { Producto } from '../../model/producto.model';
   styleUrl: './componente1.component.css'
 })
 export class Componente1Component {
-  cantidadProductos: number = 0
+  cantidadProductos: number = 0 
 
   constructor(private carritoSevice: CarritoService) { }
 

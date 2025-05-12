@@ -1,0 +1,14 @@
+<h1>Lista de Deseos</h1>
+<div class="card-container">
+    <ng-container *ngIf="deseados && deseados.length">
+        <ng-container *ngFor="let deseado of Deseados">
+            <div *ngIf = "deseado.disponible" class="card">
+                <img [src]="deseado.imagen" alt="{{ producto.nombre }}" class="product-image">
+                <h2>{{ deseado.nombre }}</h2>
+                <p>{{ deseado.descripcion }}</p>
+                <p>Precio : {{deseado.precio}}</p>
+                <button type="button" class="btn btn-outline-primary" (click)="agregar(deseado)">Agregar producto a la lista de deseos</button>
+            </div>
+        </ng-container>
+    </ng-container>
+</div>
