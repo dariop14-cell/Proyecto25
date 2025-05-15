@@ -6,27 +6,27 @@ import { Producto } from '../model/producto.model';
   providedIn: 'root'
 })
 export class CarritoService {
-  private carritosubject = new BehaviorSubject<{ producto: Producto; cantidad: number }[]>([]);
-  carrito$ = this.carritosubject.asObservable()
-  agregarAlcarrito(producto: Producto) {
-    const productos = this.carritosubject.getValue();
+  private carritoSubject = new BehaviorSubject<{producto: Producto; cantidad: number}[]>([]);
+  carrito$= this.carritoSubject.asObservable()
+  
+  agregarAlcarrito(producto:Producto){
+    const productos = this.carritoSubject.getValue();
     const encontrado = productos.find(p => p.producto.id === producto.id)
 
-    if(encontrado) {
+    if(encontrado){
       encontrado.cantidad++
-    }else{
-      this.carritosubject.next([...productos,{producto,cantidad : 1}])
+    } else{
+      this.carritoSubject.next ([...productos, {producto, cantidad :1}]) 
+
     }
   }
 
-  eliminarDelCarrito(productoId:number){
-    const productos = this.carritosubject.getValue().filter(p => p.producto.id !== productoId)
-    this.carritosubject.next(productos)
+  eliminarDelCarrito(productoId: number){
+    const productos = this.carritoSubject.getValue().filter(p => p.producto.id !== productoId)
+    this.carritoSubject.next(productos)
   }
-
   vaciarCarrito(){
-    this.carritosubject.next([])
+    this.carritoSubject.next([])
   }
-  
   constructor() { }
 }

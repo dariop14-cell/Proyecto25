@@ -5,28 +5,24 @@ import { Producto } from '../model/producto.model';
   providedIn: 'root'
 })
 export class DeseadosService {
-  private deseadosSubject = new BehaviorSubject<{ producto: Producto; cantidad: number }[]>([]);
+   private deseadoSubject = new BehaviorSubject<{producto: Producto; cantidad: number}[]>([]);
+  des$= this.deseadoSubject.asObservable()
+  
+  agregarAdeseado(producto:Producto){
+    const productos = this.deseadoSubject.getValue();
+    const encontrado = productos.find(p => p.producto.id === producto.id)
 
-  deseados$ = this.deseadosSubject.asObservable();
-  agregarDeseo(producto: Producto) {
-    const productos = this.deseadosSubject.getValue();
-    const encontrado = productos.find(p => p.producto.id === producto.id);
+    if(encontrado){
+      encontrado.cantidad++
+    } else{
+      this.deseadoSubject.next ([...productos, {producto, cantidad :1}]) 
 
-    if (encontrado) {
-      encontrado.cantidad++;
-    } else {
-      this.deseadosSubject.next([...productos, { producto, cantidad: 1 }]);
     }
   }
 
-  eliminarDeseo(productoId: number) {
-    const productos = this.deseadosSubject.getValue().filter(p => p.producto.id !== productoId);
-    this.deseadosSubject.next(productos);
+  eliminarDeDeseados(productoId: number){
+    const productos = this.deseadoSubject.getValue().filter(p => p.producto.id !== productoId)
+    this.deseadoSubject.next(productos)
   }
-
-  vaciarDeseos() {
-    this.deseadosSubject.next([])
-  }
-
   constructor() { }
 }
