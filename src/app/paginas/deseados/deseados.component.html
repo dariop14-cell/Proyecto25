@@ -1,4 +1,4 @@
-<h1>Deseados</h1>
+<h4>Bienvenido a tu lista de Deseos</h4>
 <table class="table">
     <thead>
         <tr>
@@ -6,16 +6,14 @@
             <th>Nombre</th>
             <th>Descripcion</th>
             <th>Precio</th>
-            <th>Cantidbad</th>
-            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of productosDeseado;let i = index">
             <td><img [src]="item.producto.imagen" alt="{{item.producto.nombre}}"style="width: 50px; height: 50px;"></td>
-            <td>{{item.producto.nombre}}</td>
-            <td>{{item.producto.descripcion}}</td>
-            <td>{{item.producto.precio}}</td>
+            <td>{{ item.producto.nombre }}</td>
+            <td>{{ item.producto.descripcion }}</td>
+            <td>{{ item.producto.precio }}</td>
         </tr>
     </tbody>
 </table>

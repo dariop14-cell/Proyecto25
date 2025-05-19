@@ -29,16 +29,17 @@
 </div>
 -->
 
-<h1>Productos</h1>
+<h3>¡Mira todos los productos que tenemos disponibles para vos!</h3>
 <div class="card-container">
     <ng-container *ngIf="Productos && Productos.length">
         <ng-container *ngFor="let producto of Productos">
             <div *ngIf = "producto.disponible" class="card">
                 <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="product-image">
-                <h2>{{ producto.nombre }}</h2>
+                <h4>{{ producto.nombre }}</h4>
                 <p>{{ producto.descripcion }}</p>
                 <p>Precio: {{producto.precio}}</p>
                 <button type="button" class="btn btn-outline-primary" (click)="agregar(producto)">Agregar al carrito</button>
+                <button type="button" class="btn-outline-danger" (click)="agregarDeseo(producto)">Agregar a la lista de deseos </button>
             </div>
         </ng-container>
     </ng-container>

@@ -8,41 +8,40 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page"routerLink="/contacto">Contacto</a>
+                    <a class="nav-link active" aria-current="page" routerLink="/producto">Productos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page"routerLink="/carrito">Carrito</a>
+                    <a class="nav-link active" aria-current="page" routerLink="/carrito">Carrito</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/producto">Producto</a>
+                    <a class="nav-link" routerLink="/contacto">Contactanos</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" routerLink="/ofertas" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Ofertas
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" routerLink="/ofertas">Ofertas</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="nav-link active" routerLink="carrito">Carrito</a></li>
-                    </ul>
+                        aria-expanded="false">Ofertas</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" routerLink="quienessomos">Conoce Mas</a>
+                    <a class="nav-link active" routerLink="/quienessomos">Conoce Mas</a>
                 </li>
             </ul>
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-danger" type="submit">Buscar</button>
             </form>
+            <button class="btn btn-outline-danger" type="submit" routerLink="/deseados">Ver Deseos</button>
+            <li>
+                <a [routerLink]="['/deseados']">
+                    <i class="bi bi-cart"></i>
+                    <span *ngIf="cantidadProductos > 0">
+                        ({{ cantidadProductos }})
+                    </span>
+                </a>
+            </li>
             <li>
                 <a [routerLink]="['/carrito']">
                     <i class="bi bi-cart"></i>
                     <span *ngIf="cantidadProductos > 0">
-                        ({{cantidadProductos}})
+                        ({{ cantidadProductos }})
                     </span>
                 </a>
             </li>

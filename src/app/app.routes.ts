@@ -8,7 +8,7 @@ import { CarritoComponent } from './paginas/carrito/carrito.component';
 import { DeseadosComponent } from './paginas/deseados/deseados.component';
 
 export const routes: Routes = [
-    {path: '', redirectTo: '/inicio',pathMatch:'full'},
+    {path: '', redirectTo: '/home',pathMatch:'full'},
     {path: 'home',component:HomeComponent}, 
     {path: 'contacto',component:ContactoComponent},
     {path: 'producto',component:ProductoComponent},

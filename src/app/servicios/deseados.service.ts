@@ -5,7 +5,7 @@ import { Producto } from '../model/producto.model';
   providedIn: 'root'
 })
 export class DeseadosService {
-   private deseadoSubject = new BehaviorSubject<{producto: Producto; cantidad: number}[]>([]);
+  private deseadoSubject = new BehaviorSubject<{producto: Producto; cantidad: number}[]>([]);
   des$= this.deseadoSubject.asObservable()
   
   agregarAdeseado(producto:Producto){

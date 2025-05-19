@@ -32,4 +32,4 @@
         </tr>
     </tbody>
 </table>
-<button (click) = "realizarCompra()" class="btn btn-success">Realizar Compra</button>
+<button (click) = "realizarCompra()" class="btn btn-success" [disabled]="productosEnCarrito.length === 0">Realizar Compra</button>
