@@ -8,7 +8,7 @@ body{
 /*Contenedor de las tarjetas*/
 .card-container{
     display: flex;
-    justify-content: center;/*centra orizontalmente las tarjetas*/
+    justify-content: ce nter;/*centra orizontalmente las tarjetas*/
     gap: 20px;
     flex-wrap: wrap;
     padding: 20px;
