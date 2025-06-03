@@ -1,1 +1,111 @@
-<p>compra works!</p>
+<h2 class="text-center mb mb-4">Formulario de Compra</h2>
+
+<form [formGroup]="formularioCompra" (ngSubmit)="finalizarCompra()" class="mx-auto" style="max-width:600px;">
+    <div>
+        <div class="row g-3 mb-3">
+            <div class="col-md-6">
+                <label for="nombre" class="form-label fw-semibold">Nombre <span class="text-danger">*</span></label>
+            </div>
+            <div class="input-group">
+                <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                <input id="nombre" formControlName="nombre" class="form-control" placeholder="Tu nombre completo :">
+            </div>
+            <div *ngIf="formularioCompra.get('nombre')?.touched && formularioCompra.get('nombre')?.invalid"
+                class="form-text text danger">
+                El nombre es obligatorio
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="nombre" class="form-label fw-semibold">Telefono<span class="text-danger">*</span></label>
+        </div>
+        <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+            <input id="nombre" formControlName="telefono" class="form-control" placeholder="Tu numero telefonico es :">
+        </div>
+        <div *ngIf="formularioCompra.get('telefono')?.touched && formularioCompra.get('telefono')?.invalid"
+            class="form-text text danger">El Telefono es obligatorio</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="correo" class="form-label fw-semibold">Correo<span class="text-danger">*</span></label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+        <input id="correo" formControlName="nombre" type="email" class="form-control"
+            placeholder="Tu correo electronico es :">
+    </div>
+    <div *ngIf="formularioCompra.get('correo')?.touched && formularioCompra.get('correo')?.invalid"
+        class="form-text text danger">El Correo Electronico es obligatorio</div>
+    </div>
+
+    <div class="col-md-6">
+        <label for="direccion" class="form-label fw-semibold">Direccion<span class="text-danger">*</span></label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
+        <input id="direccion" formControlName="nombre" class="form-control" placeholder="Tu direccion es :">
+    </div>
+    <div *ngIf="formularioCompra.get('direccion')?.touched && formularioCompra.get('direccion')?.invalid"
+        class="form-text text danger">La direccion es obligatoria</div>
+    </div>
+
+    <div class="col-md-6">
+        <label for="ciudad" class="form-label fw-semibold">Ciudad<span class="text-danger">*</span></label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+        <input id="ciudad" formControlName="ciudad" class="form-control" placeholder="Ej: Buenos Aires">
+    </div>
+    <div *ngIf="formularioCompra.get('ciudad')?.touched && formularioCompra.get('ciudad')?.invalid"
+        class="form-text text danger">La ciudad es obligatoria</div>
+    </div>
+
+    <div class="col-md-6">
+        <label for="provincia" class="form-label fw-semibold">Provincia<span class="text-danger">*</span></label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+        <input id="provincia" formControlName="provincia" class="form-control">
+    </div>
+    <div *ngIf="formularioCompra.get('provincia')?.touched && formularioCompra.get('provincia')?.invalid"
+        class="form-text text danger">La provincia es obligatoria</div>
+    </div>
+
+    <div class="col-md-6">
+        <label for="direccion" class="form-label fw-semibold">Direccion<span class="text-danger">*</span></label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+        <input id="direccion" formControlName="nombre" class="form-control" placeholder="Tu direccion es :">
+    </div>
+    <div *ngIf="formularioCompra.get('direccion')?.touched && formularioCompra.get('direccion')?.invalid"
+        class="form-text text danger">La direccion es obligatorio</div>
+    </div>
+
+    <div class="col-md-4">
+        <label for="codigoPostal" class="form-label fw-semibold">Codigo Postal<span class="text-danger">*</span></label>
+    </div>
+    <div class="input-group">
+        <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+        <input id="codigoPostal" formControlName="codigoPostal" class="form-control" placeholder="Ej: 1428">
+    </div>
+    <div *ngIf="formularioCompra.get('codigoPostal')?.touched && formularioCompra.get('codigoPostal')?.invalid"
+        class="form-text text danger">El codigo postal es obligatorio</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="metodoPago" class="formLabel fw-semibold">Metodo de pago<span class="text-danger">*</span></label>
+        <select id="metodoPago" formControlName="metodoPago" class="form-select">
+            <option value="" disabled selected>Seleccione un Metodo de pago</option>
+            <option value="tarjeta">Tarjeta de Credito/Debito</option>
+            <option value="efectivo">Efectivo</option>
+            <option value="transferencia">Transferencia</option>
+        </select>
+        <div *ngIf="formularioCompra.get('metodoPago')?.touched && formularioCompra.get('metodoPago')?.invalid" class="form text text-danger">Debes seleccionar un metodo de pago</div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items"></div>
+
+    </div>
+</form>
