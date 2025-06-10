@@ -100,14 +100,14 @@ export class CompraComponent implements OnInit {
     doc.text('Factura de compra,',14,20);
 
     doc.setFontSize(12)
-    doc.text(`Fecha: ${this.factura.fecha.toLocalString()}`,14,30)
+    doc.text(`Fecha: ${this.factura.fecha.toLocaleString()}`, 14, 30);
 
     //Informacion del cliente 
     doc.text('Cliente',14,40)
     const c = this.factura.cliente;
     doc.text(`Nombre: ${c.nombre}`,20,50);
     doc.text(`Direccion: ${c.direccion}`,20,60);
-    doc.text(`Correo: ${c.correp}`,20,70);
+    doc.text(`Correo: ${c.correo}`,20,70);
     doc.text(`Telefono: ${c.telefono}`,20,80);
     doc.text(`Ciudad: ${c.ciudad}`,20,90);
     doc.text(`Provincia: ${c.provincia}`,20,100);
@@ -120,7 +120,7 @@ export class CompraComponent implements OnInit {
     this.factura.productos.forEach((item:any, index:number) => {
       y +=10;
       doc.text(  
-        `${index + 1}.${item.producto.nombre} - Cantidad: ${item.Cantidad} - Precio: ${item.prducto.precio.toFixed(2)} - Subtotal: $${(item.producto.precio*item.Cantidad).toFixed(2)}`,
+        `${index + 1}.${item.producto.nombre} - Cantidad: ${item.cantidad} - Precio: ${item.producto.precio.toFixed(2)} - Subtotal: $${(item.producto.precio*item.cantidad).toFixed(2)}`,
         20,
       y
       )

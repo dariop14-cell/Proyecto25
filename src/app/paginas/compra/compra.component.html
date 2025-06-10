@@ -89,7 +89,7 @@
             <select id="metodoPago" formControlName="metodoPago" class="form-select">
                 <option value="" disabled selected>Seleccione metodo de pago</option>
                 <option value="tarjeta">Tarjeta de Credito/Debito</option>
-                <option value="efectivo">efectivo</option>
+                <option value="efectivo">Efectivo</option>
                 <option value="transferencia">Transferencia</option>
             </select>
             <div *ngIf="formularioCompra.get('metodoPago')?.touched && formularioCompra.get('metodoPago')?.invalid"
@@ -103,7 +103,7 @@
                 <p>Envio: ${{envio.toFixed(2)}}</p>
                 <p><strong>Total a Pagar : ${{calcularTotal() | number: '1.2-2'}}</strong></p>
             </div>
-            <button type="submit" class="btn btn-primary">Finalizar Compra</button>
+            <button type="submit" class="btn btn-primary" [disabled]="formularioCompra.invalid">Finalizar Compra</button>
         </div>
     </div>
 </form>
@@ -111,7 +111,6 @@
 
 <!--MODAL PDF-->
 <div *ngIf="mostrarModal" class="modal show d-block" tabindex="-1" role="dialog" style="background: rgba(0,0,0,0.5)">
-
     <div class="modal-dialog modal-xl" role="document" style="max-width: 90vw; max-height: 90 vh;">
         <div class="modal-content" style="height: 90vh;">
             <div class="modal-header">
@@ -122,14 +121,10 @@
                 <iframe *ngIf="pdfSrc" [src]="pdfSrc" id="pdfFrame"
                     style="width: 100%; height: 100%; border: none"></iframe>
             </div>
-
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" (click)="imprimirpdf()">Imprimir</button>
-
                 <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cerrar</button>
             </div>
         </div>
-
     </div>
-
 </div>
