@@ -52,16 +52,16 @@
     <ng-container *ngIf="filteredProducts && filteredProducts.length">
         <ng-container *ngFor="let products of filteredProducts">
             <div *ngIf="Producto.disponible" class="card">
-                <img [src]="Producto.imagen" alt="{{ Producto.nombre }}" class="product-image">
-                <h2>{{ Productos.nombre }}</h2>
-                <p>{{ Productos.descripcion }}</p>
-                <p>Precio: {{ Productos.precio }}</p>
-                <p>Cantidad: {{ Productos.cantidad }}</p>
-                <p>Marca: {{ Productos.marca }}</p>
+                <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="product-image">
+                <h2>{{ productos.nombre }}</h2>
+                <p>{{ productos.descripcion }}</p>
+                <p>Precio: {{ productos.precio }}</p>
+                <p>Cantidad: {{ productos.cantidad }}</p>
+                <p>Marca: {{ productos.marca }}</p>
                 <i class="bi bi-hand-thumbs-up"></i>
-                <button type="button" class="btn btn-outline-primary" (click)="agregar(Productos)">Agregar al
+                <button type="button" class="btn btn-outline-primary" (click)="agregar(productos)">Agregar al
                     carrito</button>
-                <button type="button" class="btn btn-outline-primary" (click)="agregarDeseo(Productos)">Agregar a
+                <button type="button" class="btn btn-outline-primary" (click)="agregarDeseo(productos)">Agregar a
                     deseos</button>
             </div>
         </ng-container>

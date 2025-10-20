@@ -15,7 +15,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class ProductoComponent {
   
-  Productos: Producto[] = [
+  productos: Producto[] = [
     {
       id: 1,
       nombre: 'Ferrari SF-24 coche de carreras',
@@ -25,6 +25,7 @@ export class ProductoComponent {
       disponible: true,
       marca:'',
       categoria:'',
+      cantidad:5
     },
 
     {
@@ -36,6 +37,7 @@ export class ProductoComponent {
       disponible: true,
       marca:'',
       categoria:'',
+      cantidad:5
     },
     
     {
@@ -47,6 +49,7 @@ export class ProductoComponent {
       disponible: true,
       marca:'',
       categoria:'',
+      cantidad:5
     },
 
     {
@@ -58,6 +61,7 @@ export class ProductoComponent {
       disponible: true,
       marca:'',
       categoria:'',
+      cantidad:5
     },
 
     {
@@ -69,6 +73,7 @@ export class ProductoComponent {
       disponible: true,
       marca:'',
       categoria:'',
+      cantidad:5
     },
 
     {
@@ -80,6 +85,7 @@ export class ProductoComponent {
       disponible: true,
       marca:'',
       categoria:'',
+      cantidad:5
     },
 
     {
@@ -91,6 +97,7 @@ export class ProductoComponent {
       disponible: true,
       marca:'',
       categoria:'',
+      cantidad:5
     },
 
     {
@@ -101,7 +108,8 @@ export class ProductoComponent {
       imagen: 'https://i.ebayimg.com/thumbs/images/g/ivwAAOSwmztmPGsm/s-l1200.jpg',
       marca:'',
       categoria:'',
-      disponible: true
+      disponible: true,
+      cantidad:5
     },
   ]
 
@@ -126,11 +134,11 @@ minprecio: number | null = null;
 maxprecio: number | null = null;
 
 get categories(): string[]{
-  return [...new Set(this.Productos.map(p=>p.categoria))]
+  return [...new Set(this.productos.map(p=>p.categoria))]
 }
 
 get marca(): string[]{
-  return[...new Set(this.Productos.map(p=>p.marca))]
+  return[...new Set(this.productos.map(p=>p.marca))]
 }
 
 onSearch(event:Event):void{
@@ -146,7 +154,7 @@ resetFilters():void{
 }
 
 get filteredProducts():Producto[]{
-  return this.Productos.filter(p =>
+  return this.productos.filter(p =>
   (this.searchTerm === '' || p.nombre.toLowerCase().includes(this.searchTerm.toLowerCase())) &&
   (this.selectedCategory === '' || p.categoria === this.selectedCategory) &&
   (this.selectedBrand === '' || p.marca === this.selectedBrand) && 
