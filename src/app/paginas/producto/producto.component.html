@@ -50,9 +50,9 @@
 
 <div class="card-container">
     <ng-container *ngIf="filteredProducts && filteredProducts.length">
-        <ng-container *ngFor="let products of filteredProducts">
-            <div *ngIf="Producto.disponible" class="card">
-                <img [src]="producto.imagen" alt="{{ producto.nombre }}" class="product-image">
+        <ng-container *ngFor="let productos of filteredProducts">
+            <div *ngIf="productos.disponible" class="card">
+                <img [src]="productos.imagen" alt="{{ productos.nombre }}" class="product-image">
                 <h2>{{ productos.nombre }}</h2>
                 <p>{{ productos.descripcion }}</p>
                 <p>Precio: {{ productos.precio }}</p>
